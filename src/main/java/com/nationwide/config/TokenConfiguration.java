@@ -1,4 +1,6 @@
 package com.nationwide.config;
+import com.nationwide.Mapping.MyMapping;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -18,5 +20,15 @@ public class TokenConfiguration {
 				.apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any())
 				.build();
+	}
+
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
+
+	@Bean
+	public MyMapping myMapping() {
+		return new MyMapping();
 	}
 }
