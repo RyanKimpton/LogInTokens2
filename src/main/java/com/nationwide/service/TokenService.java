@@ -48,4 +48,8 @@ public class TokenService {
 		return newToken;
 	}
 	
+	public void deleteByBearerToken( String bearerToken) {
+		Token t = findBybearerToken(bearerToken);
+		repository.delete(t);
+	}
 }
