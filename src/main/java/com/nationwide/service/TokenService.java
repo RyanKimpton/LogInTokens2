@@ -9,10 +9,10 @@ import com.nationwide.persistance.repository.TokenRepository;
 
 @Service
 public class TokenService {
-	
+
 	@Autowired
 	private TokenRepository repository;
-	
+
 	public Token findBybearerToken(String bearerToken) {
 		return repository.findByBearerToken(bearerToken);
 	}
@@ -49,6 +49,14 @@ public class TokenService {
 		return newToken;
 	}
 	
+	public Token createToken(long id, String username, String bearerToken) {
+		Token newToken = new Token();
+		newToken.setId(id);
+		newToken.setUsername(username);
+		newToken.setBearerToken(bearerToken);
+		return repository.saveAndFlush(newToken);
+	}
+
 	public Token updateToken(String bearerToken) {
 		Token item2 = repository.findByBearerToken(bearerToken);
 		

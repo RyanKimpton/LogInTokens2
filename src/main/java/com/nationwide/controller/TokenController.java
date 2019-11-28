@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,7 @@ import com.nationwide.service.TokenService;
 @CrossOrigin("*")
 @RequestMapping("/token")
 public class TokenController {
-
+//comment
 	@Autowired
 	private TokenService tokenService;
 	
@@ -26,6 +27,10 @@ public class TokenController {
 		return tokenService.findBybearerToken(bearerToken);
 	}
 	
+	@PostMapping
+	public Token createToken(@PathVariable long id, @PathVariable String username, @PathVariable String bearerToken) {
+		return tokenService.createToken(id, username, bearerToken);
+	}
 	@PutMapping("/{bearerToken}")
 	public Token updateItem(@PathVariable String bearerToken) {
 		Token newToken = tokenService.updateToken(bearerToken);
