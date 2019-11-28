@@ -27,9 +27,9 @@ public class TokenController {
 		return tokenService.findBybearerToken(bearerToken);
 	}
 	
-	@PostMapping
-	public Token createToken(@PathVariable long id, @PathVariable String username, @PathVariable String bearerToken) {
-		return tokenService.createToken(id, username, bearerToken);
+	@PostMapping("/{username}")
+	public Token createToken(@PathVariable String username) {
+		return tokenService.createToken(username);
 	}
 	@PutMapping("/{bearerToken}")
 	public Token updateItem(@PathVariable String bearerToken) {
