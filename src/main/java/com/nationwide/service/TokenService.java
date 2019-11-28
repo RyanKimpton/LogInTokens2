@@ -2,6 +2,7 @@ package com.nationwide.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.nationwide.persistance.domain.Token;
 import com.nationwide.persistance.repository.TokenRepository;
@@ -48,9 +49,24 @@ public class TokenService {
 		return newToken;
 	}
 	
+<<<<<<< HEAD
 	public Token createToken(Token token) {
 		return repository.saveAndFlush(token);
 
 	}
 
+=======
+	public Token updateToken(String bearerToken) {
+		Token item2 = repository.findByBearerToken(bearerToken);
+		
+		Token updatedToken = new Token();
+		updatedToken = tokenGenerator(item2);
+		repository.saveAndFlush(updatedToken);
+		return updatedToken;
+	}
+	public void deleteByBearerToken( String bearerToken) {
+		Token t = findBybearerToken(bearerToken);
+		repository.delete(t);
+	}
+>>>>>>> b3d1a2fe536c1304a1036cb92ee947ff0dc1d96b
 }
