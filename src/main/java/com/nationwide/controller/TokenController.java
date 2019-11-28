@@ -1,5 +1,6 @@
 package com.nationwide.controller;
 //test
+import com.nationwide.dto.ResponseTokenDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,18 +24,29 @@ public class TokenController {
 	private TokenService tokenService;
 	
 	@GetMapping("/{bearerToken}")
-	public Token getTokenFromBearerToken(@PathVariable String bearerToken) {
-		return tokenService.findBybearerToken(bearerToken);
+	public ResponseTokenDTO getTokenFromBearerToken(@PathVariable String bearerToken) {
+		Token token =  tokenService.findBybearerToken(bearerToken);
+		ResponseTokenDTO response = new ResponseTokenDTO();
+		response.setUsername(token.getUsername());
+		response.setBearerToken(token.getBearerToken());
+		return response;
 	}
 	
 	@PostMapping("/{username}")
-	public Token createToken(@PathVariable String username) {
-		return tokenService.createToken(username);
+	public ResponseTokenDTO createToken(@PathVariable String username) {
+		Token token = tokenService.createToken(username);
+		ResponseTokenDTO response = new ResponseTokenDTO();
+		response.setUsername(token.getUsername());
+		response.setBearerToken(token.getBearerToken());
+		return response;
 	}
 	@PutMapping("/{bearerToken}")
-	public Token updateItem(@PathVariable String bearerToken) {
-		Token newToken = tokenService.updateToken(bearerToken);
-		return newToken;
+	public ResponseTokenDTO updateItem(@PathVariable String bearerToken) {
+		Token token= tokenService.updateToken(bearerToken);
+		ResponseTokenDTO response = new ResponseTokenDTO();
+		response.setUsername(token.getUsername());
+		response.setBearerToken(token.getBearerToken());
+		return response;
 	}
 	@DeleteMapping("/{bearerToken}")
 	public String deleteByBearerToken(@PathVariable String bearerToken) {

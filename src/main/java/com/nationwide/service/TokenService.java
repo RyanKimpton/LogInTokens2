@@ -17,7 +17,7 @@ public class TokenService {
 		return repository.findByBearerToken(bearerToken);
 	}
 
-	private String makeBearerToken(){
+	public String makeBearerToken(){
 		int len = 30;
 
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
