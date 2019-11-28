@@ -57,8 +57,14 @@ public class TokenService {
 		repository.flush();
 		return updatedToken;
 	}
+	
+	/** delete token using the bearer_token value */
+
 	public void deleteByBearerToken( String bearerToken) {
 		Token t = findBybearerToken(bearerToken);
 		repository.delete(t);
 	}
 }
+
+
+
