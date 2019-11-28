@@ -49,9 +49,12 @@ public class TokenService {
 		return newToken;
 	}
 	
-	public Token createToken(Token token) {
-		return repository.saveAndFlush(token);
-
+	public Token createToken(long id, String username, String bearerToken) {
+		Token newToken = new Token();
+		newToken.setId(id);
+		newToken.setUsername(username);
+		newToken.setBearerToken(bearerToken);
+		return repository.saveAndFlush(newToken);
 	}
 
 	public Token updateToken(String bearerToken) {
@@ -65,13 +68,5 @@ public class TokenService {
 	public void deleteByBearerToken( String bearerToken) {
 		Token t = findBybearerToken(bearerToken);
 		repository.delete(t);
-	}
-	public class service{
-		/**
-		 * Takes in an {@link Account} and saves it to DB
-		 */
-		public Token createToken(Token token) {
-			create
-		}
 	}
 }
