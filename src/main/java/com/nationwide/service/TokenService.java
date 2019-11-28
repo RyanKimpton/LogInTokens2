@@ -9,17 +9,17 @@ import com.nationwide.persistence.domain.Account;
 
 @Service
 public class TokenService {
-	
+
 	@Autowired
-	private static TokenRepository repository;
-	
+	private TokenRepository repository;
+
 	public Token findBybearerToken(String bearerToken) {
 		return repository.findByBearerToken(bearerToken);
 	}
 
-	public static Token createToken(Token token) {
-			return repository.saveAndFlush(token);
-		}
+	public Token createToken(Token token) {
+		return repository.saveAndFlush(token);
+
 	}
-	
+
 }
