@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nationwide.persistance.domain.Token;
+import com.nationwide.persistence.domain.Account;
 import com.nationwide.service.TokenService;
 
 @RestController
@@ -21,6 +24,11 @@ public class TokenController {
 	@GetMapping("/{bearerToken}")
 	public Token getTokenFromBearerToken(@PathVariable String bearerToken) {
 		return tokenService.findBybearerToken(bearerToken);
+	}
+	
+	@PostMapping
+	public Token createToken(@RequestBody Token token) {
+		return TokenService.createToken(token);
 	}
 
 }
