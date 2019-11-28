@@ -1,7 +1,8 @@
 package com.nationwide.controller;
-
+//test
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,10 @@ public class TokenController {
 	public Token updateItem(@PathVariable String bearerToken) {
 		Token newToken = tokenService.updateToken(bearerToken);
 		return newToken;
+	@DeleteMapping("/{bearerToken}")
+	public String deleteByBearerToken(@PathVariable String bearerToken) {
+		tokenService.deleteByBearerToken(bearerToken);
+		return "token deleted";
 	}
 
 }
