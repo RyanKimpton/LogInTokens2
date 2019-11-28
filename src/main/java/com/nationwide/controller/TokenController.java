@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nationwide.persistance.domain.Token;
-import com.nationwide.persistence.domain.Account;
 import com.nationwide.service.TokenService;
 
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/token")
 public class TokenController {
-
+//comment
 	@Autowired
 	private TokenService tokenService;
 	

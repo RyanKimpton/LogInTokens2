@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.nationwide.persistance.domain.Token;
 import com.nationwide.persistance.repository.TokenRepository;
-import com.nationwide.persistence.domain.Account;
 
 @Service
 public class TokenService {
