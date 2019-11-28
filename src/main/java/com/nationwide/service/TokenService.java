@@ -56,6 +56,7 @@ public class TokenService {
 		updatedToken = tokenGenerator(item2);
 		repository.flush();
 		return updatedToken;
+	}
 	public void deleteByBearerToken( String bearerToken) {
 		Token t = findBybearerToken(bearerToken);
 		repository.delete(t);

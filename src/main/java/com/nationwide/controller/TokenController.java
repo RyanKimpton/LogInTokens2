@@ -30,6 +30,7 @@ public class TokenController {
 	public Token updateItem(@PathVariable String bearerToken) {
 		Token newToken = tokenService.updateToken(bearerToken);
 		return newToken;
+	}
 	@DeleteMapping("/{bearerToken}")
 	public String deleteByBearerToken(@PathVariable String bearerToken) {
 		tokenService.deleteByBearerToken(bearerToken);
