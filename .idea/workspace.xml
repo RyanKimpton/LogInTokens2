@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6a7fab5-e375-497f-82b2-03414478800d" name="Default Changelist" comment="">
+    <list default="true" id="a6a7fab5-e375-497f-82b2-03414478800d" name="Default Changelist" comment="Fixed update functionality">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nationwide/controller/TokenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nationwide/controller/TokenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nationwide/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nationwide/service/TokenService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,6 +29,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -72,6 +75,7 @@
       <updated>1574935305607</updated>
       <workItem from="1574935307212" duration="367000" />
       <workItem from="1574948239091" duration="66000" />
+      <workItem from="1574952080034" duration="314000" />
     </task>
     <servers />
   </component>
@@ -83,7 +87,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
