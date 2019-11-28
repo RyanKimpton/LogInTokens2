@@ -8,5 +8,4 @@ public interface TokenRepository extends JpaRepository<Token, Long> {
 	
 	public Token findByBearerToken(String bearerToken);
 
-	public Token findByToken(String bearerToken);
 }

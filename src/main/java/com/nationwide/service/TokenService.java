@@ -18,7 +18,7 @@ public class TokenService {
 	}
 	
 	public Token updateToken(String bearerToken) {
-		Token item2 = repository.findByToken(bearerToken);
+		Token item2 = repository.findByBearerToken(bearerToken);
 		item2.setBearerToken(tokenGenerator());
 		repository.flush();
 		return item2;
