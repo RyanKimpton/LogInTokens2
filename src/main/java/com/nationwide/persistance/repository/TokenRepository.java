@@ -7,4 +7,5 @@ import com.nationwide.persistance.domain.Token;
 public interface TokenRepository extends JpaRepository<Token, Long> {
 	
 	public Token findByBearerToken(String bearerToken);
+
 }

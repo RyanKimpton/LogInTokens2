@@ -16,4 +16,8 @@ public class TokenService {
 		return repository.findByBearerToken(bearerToken);
 	}
 	
+	public void deleteByBearerToken( String bearerToken) {
+		Token t = findBybearerToken(bearerToken);
+		repository.delete(t);
+	}
 }
