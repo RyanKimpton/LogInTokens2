@@ -17,8 +17,7 @@ public class TokenService {
 		return repository.findByBearerToken(bearerToken);
 	}
 
-	public Token tokenGenerator(Token oldToken){
-		Token newToken = new Token();
+	private String makeBearerToken(){
 		int len = 30;
 
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -41,29 +40,21 @@ public class TokenService {
 					.charAt(index));
 		}
 
-		newToken.setBearerToken(sb.toString());
-
-		newToken.setUsername(oldToken.getUsername());
-		newToken.setId(oldToken.getId());
-
-		return newToken;
+		return sb.toString();
 	}
-	
-	public Token createToken(long id, String username, String bearerToken) {
+
+	public Token createToken(String username) {
 		Token newToken = new Token();
-		newToken.setId(id);
 		newToken.setUsername(username);
-		newToken.setBearerToken(bearerToken);
+		newToken.setBearerToken(makeBearerToken());
 		return repository.saveAndFlush(newToken);
 	}
 
 	public Token updateToken(String bearerToken) {
-		Token item2 = repository.findByBearerToken(bearerToken);
-		
-		Token updatedToken = new Token();
-		updatedToken = tokenGenerator(item2);
-		repository.saveAndFlush(updatedToken);
-		return updatedToken;
+		Token token = repository.findByBearerToken(bearerToken);
+		token.setBearerToken(makeBearerToken());
+		repository.flush();
+		return token;
 	}
 	public void deleteByBearerToken( String bearerToken) {
 		Token t = findBybearerToken(bearerToken);
